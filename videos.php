@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <title>EcoKids</title>
-        <link rel="icon" href="img/logo3.png" type="image/x-icon">
-    </head>
-    <header>
-        <h1><div class="logo3"><img src="img/logo3.png" alt="Logomarca"></div>EcoKids</h1>
-    </header>
-    <body>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-            <li><a href="videos.html">Vídeos</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="curiosidades.html">Leitura</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-        </ul>
+<?php
+    include 'header.php';
+?>
         <h3>Vídeos Tutoriais</h3>
     <div class="video-pr">
         <iframe id="video-player" width="900" height="550" 

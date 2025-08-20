@@ -2,6 +2,7 @@ body {
     background-color: rgb(223, 224, 223);
     margin-left: 150px;
     margin-right: 150px;
+    overflow-x: hidden;
   }
 header {
     color: white;
@@ -98,6 +99,20 @@ h3 {
   text-indent: 20px;
   border-radius: 10px;
   line-height: 70px;
+}
+
+.h3_button {
+  margin-left: 67.5%;
+  margin-bottom: 20%;
+  height: 70px;
+  width: 10%;
+  position: absolute;
+  border-radius: 10px;
+  background-color: white;
+  color: rgb(27, 179, 22);
+  font-size: 1.1vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
 }
 
 .video-principal {

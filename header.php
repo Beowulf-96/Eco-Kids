@@ -6,18 +6,16 @@
         <link rel="stylesheet" href="styles.css">
         <title>EcoKids</title>
         <link rel="icon" href="img/logo3.png" type="image/x-icon">
+        
     </head>
+    <body>
     <header>
         <h1><div class="logo3"><img src="img/logo3.png" alt="Logomarca"></div>EcoKids</h1>
     </header>
-    <body>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="videos.html">Vídeos</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="curiosidades.html">Leitura</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="videos.php">Vídeos</a></li>
+            <li><a href="games.php">Games</a> </li>
+            <li><a href="curiosidades.php">Leitura</a></li>
+            <li><a href="sobre.php">Sobre</a></li>
         </ul>
-        <h3>Under construction...</h3>
-    </body>
-    </html>
