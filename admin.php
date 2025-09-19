@@ -62,5 +62,28 @@
                 return "Erro: " . $e->getMessage();
             }
         }
+
+        public function editar($id, $nome, $email) {
+            $emailExistente = $this->existeEmail($email);
+            if(count($emailExistente) > 0 && $emailExistente['id'] != $id) {
+                return FALSE;
+            } else {
+                try {
+                    $sql = $this->con->conectar()->prepare("UPDATE admin SET nome = :nome, email = :email WHERE id = :id");
+                    $sql->bindValue(":nome", $nome);
+                    $sql->bindValue(":email", $email);
+                    $sql->execute();
+                    return TRUE;
+                } catch(PDOException $e) {
+                    echo "Erro: " . $e->getMessage();
+                }
+            }
+        }
+
+        public function deletar($id) {
+            $sql = $this->con->conectar()->prepare("DELETE FROM admin WHERE id = :id");
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+        }
     }
 ?>
