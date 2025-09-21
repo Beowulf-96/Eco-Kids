@@ -24,23 +24,27 @@
             return $array; 
         }
 
-        public function adicionar($email, $nome) {
+        public function adicionar($nome, $email, $senha) {
             $emailExistente = $this->existeEmail($email);
-            if(count($emailExistente) == 0) {
-                try{
-                    $this->nome = $nome;
-                    $this->email = $email;
-                    $sql = $this->con->conectar()->prepare("INSERT INTO admin (nome,email) VALUES (:nome, :email)");
-                    $sql->bindParam(":nome", $this->nome, PDO::PARAM_STR);
-                    $sql->bindParam(":email", $this->email, PDO::PARAM_STR);
+            if (count($emailExistente) == 0) {
+                try {
+                    $hash = password_hash($senha, PASSWORD_DEFAULT);
+                    $sql = $this->con->conectar()->prepare(
+                        "INSERT INTO admin (nome,email,senha) VALUES (:nome, :email, :senha)"
+                    );
+                    $sql->bindValue(":nome", $nome);
+                    $sql->bindValue(":email", $email);
+                    $sql->bindValue(":senha", $hash);
+                    $sql->execute();
                     return TRUE;
-                }catch(PDOException $e) {
-                    return "Erro ao adicionar! " . $e->getMessage();
+                } catch(PDOException $e) {
+                    return "Erro: " . $e->getMessage();
                 }
-            }else{
+            } else {
                 return FALSE;
             }
         }
+
 
         public function listar() {
             try {
@@ -84,6 +88,22 @@
             $sql = $this->con->conectar()->prepare("DELETE FROM admin WHERE id = :id");
             $sql->bindValue(":id", $id);
             $sql->execute();
+        }
+
+        public function login($email,$senha) {
+            $sql = $this->con->conectar()->prepare("SELECT (email,senha) FROM admin VALUES (:email, :senha)");
+            $sql->bindValue(":email", $email);
+            $sql->bindValue(":senha", $senha);
+            $sql->execute();
+
+            if($sql->rowCont() > 0) {
+                $admin = $sql->fetch(PDO::FETCH_ASSOC);
+                if(password_verify($senha,$admin['senha'])) {
+                    return $admin;
+                } else {
+                    return FALSE;
+                }
+            }
         }
     }
 ?>

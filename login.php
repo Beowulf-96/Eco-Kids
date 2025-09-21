@@ -1,22 +1,27 @@
 <?php
-    $session_start();
-    if (isset($_SESSION['usuario'])) {
-        header("Location: admin.php");
-        exit;
+    session_start();
+    require_once "admin.php";
+
+    if($_SERVER["REQUEST_METHOD"] === 'POST') {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+
+        $admin = new Administrador();
+        $logado = $admin->login($email, $senha);
+
+        if($logado) {
+            $_SESSION['admin_id'] = $logado['id'];
+            $_SESSION['nome_id'] = $logado['nome'];
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            echo "Email ou senha inválidos!";
+        }
     }
 ?>
 
-<!DOCTYPE html>
-<html lant="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login - Eco Kids</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <form action="processa_login.php" method="POST">
-
-        </form>
-    </body>
-</html>
+<form method="POST" action="login.php">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Entrar</Button>
+</form>

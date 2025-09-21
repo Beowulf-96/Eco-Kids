@@ -1,5 +1,4 @@
 <?php
-//Fabrica de conexoes (conection factory)
 
 class Conexao {
     private $usuario;
@@ -28,3 +27,4 @@ class Conexao {
         }
     }
 }
+?>
