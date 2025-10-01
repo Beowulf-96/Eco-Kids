@@ -90,7 +90,6 @@
             $sql->execute();
         }
 
-<<<<<<< HEAD
         public function autenticar($email, $senha) {
             try {
             $sql = $this->con->conectar()->prepare("SELECT * FROM admin WHERE email = :email");
@@ -105,21 +104,6 @@
             }
         } catch (PDOExcetpion $e){
                 return "Erro!" . $e->getMessage();
-=======
-        public function login($email,$senha) {
-            $sql = $this->con->conectar()->prepare("SELECT (email,senha) FROM admin VALUES (:email, :senha)");
-            $sql->bindValue(":email", $email);
-            $sql->bindValue(":senha", $senha);
-            $sql->execute();
-
-            if($sql->rowCont() > 0) {
-                $admin = $sql->fetch(PDO::FETCH_ASSOC);
-                if(password_verify($senha,$admin['senha'])) {
-                    return $admin;
-                } else {
-                    return FALSE;
-                }
->>>>>>> c3aced386e236227c1ff9f3fb1a79df74e3df241
             }
         }
     }
