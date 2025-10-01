@@ -85,5 +85,22 @@
             $sql->bindValue(":id", $id);
             $sql->execute();
         }
+
+        public function autenticar($email, $senha) {
+            try {
+            $sql = $this->con->conectar()->prepare("SELECT * FROM admin WHERE email = :email");
+            $sql->bindValue(":email", $email);
+            $sql->execute();
+            $usuario = $sql->fetch(PDO::FETCH_ASSOC);
+
+            if ($usuario && password_verify($senha, $usuario['senha'])) {
+                return $usuario;
+            } else {
+                return false;
+            }
+        } catch (PDOExcetpion $e){
+                return "Erro!" . $e->getMessage();
+            }
+        }
     }
 ?>
