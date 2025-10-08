@@ -1,7 +1,7 @@
 <?php
     include 'header.php';
 ?>
-        <h3>CEO <a href="admin.php" class="h3_button">Administrador</a></h3>
+        <h3>CEO <a href="login.php" class="h3_button">Administrador</a></h3>
         <div class="rapha img">
         <img src="img/rapha.jpg" alt="Raphael">
             <div class="rapha">
