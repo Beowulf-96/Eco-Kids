@@ -1,5 +1,5 @@
 <?php
-    require_once "conexao.php";
+    require_once "admin/conexao.php";
 
     class Administrador {
         private $id;
