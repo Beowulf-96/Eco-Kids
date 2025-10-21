@@ -5,3 +5,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 ?>
+
+<h1>asdasdasda</h1>
+<a href="logout.php"> Sair </a>

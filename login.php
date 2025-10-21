@@ -7,7 +7,7 @@
         $senha = $_POST['senha'];
 
         $admin = new Administrador();
-        $admin->autenticar($email, $senha);
+        $usuario = $admin->autenticar($email, $senha);
 
         if($usuario) {
             $_SESSION['admin_id'] = $usuario['id'];
