@@ -2,6 +2,7 @@
     require_once 'verifica_admin.php';
     verifica_admin();
     require 'conexao.php';
+    include 'header.php';
 
     $conexao = new Conexao();
     $conn = $conexao->conectar();
@@ -15,7 +16,7 @@
         $stmt->bindParam(':caminho', $_POST['caminho']);
         $stmt->execute();
 
-        header("Location: dashboard.php");
+        header("Location: adicionar_jogo.php");
         exit;
     }
 ?>

@@ -2,6 +2,7 @@
 require_once 'verifica_admin.php';
 verifica_admin();
 require 'conexao.php';
+include 'header.php';
 
 $conexao = new Conexao();
 $conn = $conexao->conectar();

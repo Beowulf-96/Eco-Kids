@@ -28,7 +28,6 @@
             $emailExistente = $this->existeEmail($email);
             if (count($emailExistente) == 0) {
                 try {
-                    // REMOVIDO: $hash = password_hash($senha, PASSWORD_DEFAULT);
                     $sql = $this->con->conectar()->prepare(
                         "INSERT INTO admin (nome,email,senha) VALUES (:nome, :email, :senha)"
                     );
@@ -97,7 +96,6 @@
                 $sql->execute();
                 $usuario = $sql->fetch(PDO::FETCH_ASSOC);
 
-                // SIMPLIFICADO: compara senha diretamente sem hash
                 if ($usuario && $senha === $usuario['senha']) {
                     return $usuario;
                 } else {

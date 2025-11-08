@@ -13,7 +13,7 @@
         <h1><div class="logo3"><img src="/ecokids/Eco-Kids-main/img/logo3.png" alt="Logomarca"></div>EcoAdmin</h1>
     </header>
         <ul>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="dashboard.php">Home</a></li>
             <li><a href="adicionar_video.php">Vídeos</a></li>
             <li><a href="adicionar_jogo.php">Games</a> </li>
             <li><a href="curiosidades.php">Leitura</a></li>
